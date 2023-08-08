@@ -29,6 +29,9 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -60,4 +63,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Allows for easily testing json responses for controlers using:
+  # - expect(json).to have_key('test_key')
+  config.include ApiHelpers #, :type => :controller  
+
+  config.filter_run_excluding :block => nil
 end
