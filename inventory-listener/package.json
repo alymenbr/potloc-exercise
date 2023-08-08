@@ -1,0 +1,29 @@
+{
+  "name": "inventory-listener",
+  "version": "1.0.0",
+  "description": "A websocket listener to receive inventory updates from Aldo's shoes stores.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "engines": {
+    "node": "17.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alymenbr/potloc.git"
+  },
+  "keywords": [
+    "potloc"
+  ],
+  "author": "Alysson Anthony",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alymenbr/potloc/issues"
+  },
+  "homepage": "https://github.com/alymenbr/potloc#readme",
+  "dependencies": {
+    "ws": "^8.13.0"
+  }
+}
