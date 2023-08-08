@@ -22,6 +22,7 @@ class Api::InventoryController < ApplicationController
     end
 
     if inventory.valid?
+      puts "received: {store: #{inventory.shoe_store.name}, model: #{inventory.shoe_model.name}, quantity: #{inventory.quantity}}"
       render json: inventory.as_json, status: :created
     else
       render json: {error: inventory.errors}, status: :unprocessable_entity

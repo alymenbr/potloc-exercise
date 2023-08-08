@@ -33,5 +33,19 @@ module InventoryHub
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    if defined?(Rails::Server)
+      config.after_initialize do
+        3.times do puts '' end
+        puts ' -------------------- '
+        puts ' LAST INVENTORY STATE '
+        puts ' -------------------- '
+        Inventory.all.each do |item|
+          puts "{store: #{item.shoe_store.name}, model: #{item.shoe_model.name}, quantity: #{item.quantity}}"
+        end
+        3.times do puts '' end
+      end
+    end
+
   end
 end
