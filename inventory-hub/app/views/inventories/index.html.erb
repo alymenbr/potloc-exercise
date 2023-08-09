@@ -19,7 +19,7 @@
     </div>
   </div>
   
-  <div id="inventory_global_id">
+  <div id="inventory_global_id" class="flex flex-col">
     <% @inventories.each do |inventory| %>   
       <%= render partial: 'inventories/inventory', object: inventory %>
     <% end %>
