@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
   namespace :api do
     defaults format: :json do
       resources :inventory, only: [:create]
@@ -10,4 +9,10 @@ Rails.application.routes.draw do
   end 
 
   resources :inventories, only: [:index]
+  resources :shoe_stores, only: [:show]
+  resources :shoe_models, only: [:show]
+
+  # Non existing routes should fallback to /inventories
+  get '/' => redirect('/inventories')
+  get "*path", to: redirect('/inventories')
 end

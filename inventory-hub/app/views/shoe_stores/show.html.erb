@@ -1,0 +1,43 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-blue-50 mb-5 text-blue-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+  <div class="flex justify-between items-center pb-8">
+    <%= link_to 'Back', inventories_path, class: "mr-3 rounded-lg py-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <h1 class="mx-auto text-xl font-bold text-4xl">Inventory for <em><%= @shoe_store.name %></em></h1>
+  </div>
+
+  <table id="shoe_models" class="mx-auto min-w-[60%]">
+    <thead>
+      <tr>
+        <td>
+          <p class="text-xl font-bold mb-3">Model</p>
+        </td>
+        <td>
+          <p class="text-xl font-bold mb-3">Quantity</p>
+        </td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @shoe_store.inventories.each do |inventory| %>
+        <tr class="<%= cycle('bg-blue-50 px-20', 'bg-white px-20') %>">
+
+          <td>
+            <p class="text-l hover:font-semibold">
+              <%= link_to "#{inventory.shoe_model.name}", inventory.shoe_model %>
+            </p>
+          </td>          
+
+          <td class="px-2 py-3 text-right">
+            <%= inventory.quantity %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  </div>
+</div>

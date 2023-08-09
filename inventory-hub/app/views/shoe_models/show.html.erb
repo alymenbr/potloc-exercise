@@ -1,23 +1,19 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-blue-50 mb-5 text-blue-500 font-medium
-              rounded-lg inline-block" id="notice">
-      <%= notice %>
-    </p>
-  <% end %>
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-blue-50 mb-5 text-blue-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
 
   <div class="flex justify-between items-center pb-8">
-    <h1 class="mx-auto text-xl font-bold text-4xl">Aldo's Global Inventory</h1>
+    <%= link_to 'Back', inventories_path, class: "mr-3 rounded-lg py-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <h1 class="mx-auto text-xl font-bold text-4xl">Availability for <em><%= @shoe_model.name %></em></h1>
   </div>
 
-  <table id="inventories" class="mx-auto">
+  <table id="shoe_stores" class="mx-auto min-w-full">
     <thead>
       <tr>
         <td>
           <p class="text-xl font-bold mb-3">Store</p>
-        </td>
-        <td>
-          <p class="text-xl font-bold mb-3">Model</p>
         </td>
         <td>
           <p class="text-xl font-bold mb-3">Quantity</p>
@@ -26,18 +22,11 @@
     </thead>
 
     <tbody>
-      <% @inventories.each do |inventory| %>
+      <% @shoe_model.inventories.each do |inventory| %>
         <tr class="<%= cycle('bg-blue-50', 'bg-white') %>">
-
           <td>
             <p class="text-l hover:font-semibold">
               <%= link_to "#{inventory.shoe_store.name}", inventory.shoe_store %>
-            </p>
-          </td>
-
-          <td>
-            <p class="hover:font-semibold">
-              <%= link_to "#{inventory.shoe_model.name}", inventory.shoe_model %>
             </p>
           </td>          
 
@@ -48,4 +37,6 @@
       <% end %>
     </tbody>
   </table>
+
+  </div>
 </div>
