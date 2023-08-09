@@ -55,3 +55,33 @@ npm start
 ```
 
 At the end of the iteration, we could show the inventory updates of all stores in a single console window.
+
+
+### Iteration 2 - Persistence and Queue
+_Well, that is something. What happens if I open the solution at 8 pm? My stores will be closed, with no new updates sent. How will I know the state of the inventory, then?_ - Mr. Aldo.
+
+As Aldo's subsequent demand involved persistence, we decided to create a new Rails application. Rails is also a good fit for the demands he said may come next.
+
+	- We created a new Rails 7.0.6 application without a test suite (-T flag) and added RSpec afterward. It can be found in the inventory-hub directory. 
+	- For the database, we decided to have three tables: stores, models and inventory.
+	- We modified the inventory-listener to post the updates to the Rails application instead of writing to the console
+	- The Rails app receives requests from the inventory-listener and updates the database
+	- When the Rails app starts, it shows the current inventory on the console
+	- The Rails app also shows inventory updates in the console as they are processed
+
+
+At the current state, to get our entire solution up:
+```
+websocketd --port=8080 ruby inventory.rb    # in \shoe-store-master
+npm start                                   # in \inventory-listener
+rails start                                 # in \inventory-hub
+```
+
+To check our tests:
+```
+npm test                                   # in \inventory-listener
+rspec                                      # in \inventory-hub
+```
+
+
+Ultimately, we could transfer the messages received from inventory-listener to inventory-hub. There, we were able to persist the inventory state on the database (defaults to SQLite) and show the last known inventory state on application startup.
