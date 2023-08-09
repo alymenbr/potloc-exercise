@@ -57,7 +57,7 @@ npm start
 At the end of the iteration, we could show the inventory updates of all stores in a single console window.
 
 
-### Iteration 2 - Persistence and Queue
+### Iteration 2 - Persistence
 _Well, that is something. What happens if I open the solution at 8 pm? My stores will be closed, with no new updates sent. How will I know the state of the inventory, then?_ - Mr. Aldo.
 
 As Aldo's subsequent demand involved persistence, we decided to create a new Rails application. Rails is also a good fit for the demands he said may come next.
@@ -85,3 +85,39 @@ rspec                                      # in \inventory-hub
 
 
 Ultimately, we could transfer the messages received from inventory-listener to inventory-hub. There, we were able to persist the inventory state on the database (defaults to SQLite) and show the last known inventory state on application startup.
+
+
+### Iteration 3 - A new UI
+_When I asked for a system, I never thought I would be looking at a bland console window. Right now, this looks like an ancient bulletin board system! Can you make this into a webpage or something like that?_ - Mr. Aldo
+
+Aldo seems to be surprised that we are still working on the console. It is now time to change that.
+
+We choose Tailwind as a practical CSS framework to help us add some styling to the new UI.
+
+After some thought, we decided to have three views for Mr. Aldo:
+ - A General Inventory page showing the inventory of all models in all store
+ - A Store Inventory page showing the inventory of all models in a specific store
+ - A Model Inventory page showing the availability of a specific model in all stores
+
+We also added some primary navigation between the views. As only Mr. Aldo will be using the solution for now, he wanted us to spend no effort adding user authentication/authorization.
+
+At the current state, to get our entire solution up:
+```
+websocketd --port=8080 ruby inventory.rb    # in \shoe-store-master
+npm start                                   # in \inventory-listener
+rails start                                 # in \inventory-hub
+```
+
+To check our updated tests:
+```
+npm test                                   # in \inventory-listener
+rspec                                      # in \inventory-hub
+```
+
+To access the webpage view of the inventory:
+```
+http://localhost:3000/inventories          # in any Browser
+```
+
+
+At the end of this iteration, we could show the global inventory, store specific inventory, and model specific availability using a simple but functional web interface.
