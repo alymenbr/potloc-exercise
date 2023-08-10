@@ -36,4 +36,20 @@ RSpec.describe ApplicationHelper, type: :helper do
       end          
     end
   end
+
+  describe "animated_highlight_on usage" do
+    context 'with valid parameters' do
+      it "returns the item-highlight when the parameter is present or is true" do
+        parameter = "existing parameter"
+        expect(helper.animated_highlight_on(true)).to eq('item-highlight')
+        expect(helper.animated_highlight_on(1)).to eq('item-highlight')
+        expect(helper.animated_highlight_on(parameter)).to eq('item-highlight')
+      end
+
+      it "returns the item-highlight when the parameter is not present or is false" do
+        expect(helper.animated_highlight_on(false)).to eq(nil)
+        expect(helper.animated_highlight_on(nil)).to eq(nil)
+      end         
+    end
+  end
 end
