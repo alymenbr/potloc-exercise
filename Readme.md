@@ -1,4 +1,6 @@
-# What is this
+# Alysson Anthony's solution for Potloc's shoe-store exercise
+
+### What is this
 
 I meant to highlight my ideas, assumptions and process for solving the technical exercise. It is also meant as a conversation starter so we can discuss my approach to the exercise open-mindedly. I would also like to discuss why I am an excellent fit for Potloc and what value I can add to the Questionnaire team and Potloc's road to a bright future.
 
