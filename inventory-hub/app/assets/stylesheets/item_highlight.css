@@ -1,0 +1,10 @@
+@keyframes item-highlight {
+  0% {
+    color: transparent;
+    background: rgb(255, 255, 173);
+  }
+}
+
+.item-highlight {
+  animation: item-highlight 3s;
+}

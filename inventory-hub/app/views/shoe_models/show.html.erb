@@ -20,7 +20,7 @@
       <%= turbo_frame_tag(dom_id(@shoe_model)) do %>
         <div class="flex flex-col">
           <% @shoe_model.inventories.each do |inventory| %>   
-            <%= render partial: 'inventories/inventory', object: inventory %>
+            <%= render partial: 'inventories/inventory', locals: {inventory: inventory, created: @created, updated: @updated} %>
           <% end %>
         </div>
       <% end %>

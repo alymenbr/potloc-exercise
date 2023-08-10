@@ -21,7 +21,7 @@
   
   <div id="inventory_global_id" class="flex flex-col">
     <% @inventories.each do |inventory| %>   
-      <%= render partial: 'inventories/inventory', object: inventory %>
+      <%= render partial: 'inventories/inventory', locals: {inventory: inventory, created: @created, updated: @updated} %>
     <% end %>
   </div>
 

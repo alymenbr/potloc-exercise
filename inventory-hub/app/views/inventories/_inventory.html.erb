@@ -1,6 +1,6 @@
 <div style="order: <%= inventory_order inventory.shoe_store.name, inventory.shoe_model.name %>">
   <%= turbo_frame_tag(dom_id(inventory)) do %>
-    <div class="flex flex-row py-1 bg-gray-50 hover:bg-yellow-50">
+    <div class="flex flex-row py-1 bg-gray-50 hover:bg-yellow-50 <%= 'item-highlight' if local_variables.include?(:created) && created.present? %>">
       <div class="flex-1 basis-1/2 mx-10">
         <p class="text-l hover:font-semibold" data-turbo="false">
           <%= link_to "#{inventory.shoe_store.name}", inventory.shoe_store %>
@@ -11,8 +11,8 @@
           <%= link_to "#{inventory.shoe_model.name}", inventory.shoe_model %>
         </p>
       </div>
-      <div class="flex-1 basis-1/4 mx-10 text-end">
-        <%= inventory.quantity %>
+      <div class="flex-1 basis-1/4 mx-10 text-end <%= 'item-highlight' if local_variables.include?(:updated) && updated.present? %>">
+          <%= inventory.quantity %>
       </div>
     </div>
   <% end %>        
