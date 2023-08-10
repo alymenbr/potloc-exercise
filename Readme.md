@@ -1,4 +1,4 @@
-# Alysson Anthony's solution for Potloc's shoe-store exercise
+# Alysson Anthony's solution for Potloc's exercise
 
 ### What is this
 
