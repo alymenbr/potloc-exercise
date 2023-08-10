@@ -67,3 +67,10 @@ end
 
 
 gem "tailwindcss-rails", "~> 2.0"
+
+# Swaggard - Solves https://github.com/adrian-gomez/swaggard/issues/39
+gem 'swaggard', :git => 'https://github.com/LeftClickBV/swaggard.git', :ref => '6e1e8c9'
+
+gem "sprockets", "~> 4.2"
+
+gem "active_model_serializers", "~> 0.10.13"

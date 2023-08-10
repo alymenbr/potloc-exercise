@@ -1,8 +1,17 @@
+# @tag ShoeStoresController
+# API for inventory of a specific shoe store.
 class ShoeStoresController < ApplicationController
   before_action :set_shoe_store, only: %i[ show ]
 
-  # GET /shoe_stores/1 or /shoe_stores/1.json
+  # Returns a shoe model and all of its available inventory
+  #
+  # @response_status 200
+  # @response_class ShoeStoreSerializer
   def show
+    respond_to do |format|
+      format.html { render :show, status: :ok }
+      format.json { render json: @shoe_store, status: :ok }
+    end        
   end
 
   private

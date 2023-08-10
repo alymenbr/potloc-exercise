@@ -1,6 +1,16 @@
+# @tag Api::InventoryController
+# Endpoint for receiving inventory updates.
 class Api::InventoryController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
+  # Updates or creates inventory
+  #
+  # @body_parameter [string] store
+  # @body_parameter [string] model
+  # @body_parameter [integer] inventory
+  #
+  # @response_class InventorySerializer
+  # @response_status 201
   def create
     params.require([:store, :model, :inventory])
     inventory_params = parse_create_params(request.body.read)
@@ -23,7 +33,7 @@ class Api::InventoryController < ApplicationController
 
     if inventory.valid?
       puts "received: {store: #{inventory.shoe_store.name}, model: #{inventory.shoe_model.name}, quantity: #{inventory.quantity}}"
-      render json: inventory.as_json, status: :created
+      render json: inventory, status: :created
     else
       render json: {error: inventory.errors}, status: :unprocessable_entity
     end

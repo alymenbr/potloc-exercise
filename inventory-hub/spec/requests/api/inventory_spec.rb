@@ -19,7 +19,7 @@ RSpec.describe "Api::Inventories", type: :request do
         post '/api/inventory', params: params.to_json, headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
 
         expect(response).to have_http_status(:created)
-        expect(json["shoe_store_id"]).to eq(store1.id)
+        expect(json["shoe_store"]["id"]).to eq(store1.id)
       end
 
       it 'updates inventory for an existing model' do
@@ -27,7 +27,7 @@ RSpec.describe "Api::Inventories", type: :request do
         post '/api/inventory', params: params.to_json, headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
 
         expect(response).to have_http_status(:created)
-        expect(json["shoe_model_id"]).to eq(model1.id)
+        expect(json["shoe_model"]["id"]).to eq(model1.id)
       end      
 
       it 'updates inventory for an existing model and store' do
@@ -35,8 +35,8 @@ RSpec.describe "Api::Inventories", type: :request do
         post '/api/inventory', params: params.to_json, headers: { 'CONTENT_TYPE' => 'application/json', 'ACCEPT' => 'application/json' }
 
         expect(response).to have_http_status(:created)
-        expect(json["shoe_store_id"]).to eq(store1.id)
-        expect(json["shoe_model_id"]).to eq(model1.id)
+        expect(json["shoe_store"]["id"]).to eq(store1.id)
+        expect(json["shoe_model"]["id"]).to eq(model1.id)
       end           
 
       it 'when succeeding, responds with a correctly updated quantity' do

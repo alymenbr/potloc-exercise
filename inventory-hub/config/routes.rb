@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
+  # Swaggard Engine
+  mount Swaggard::Engine, at: '/api_docs/swagger/'
+
+  # External api path - only json
   namespace :api do
     defaults format: :json do
       resources :inventory, only: [:create]
     end
   end 
 
+  # Common api path - json and html
   resources :inventories, only: [:index]
   resources :shoe_stores, only: [:show]
   resources :shoe_models, only: [:show]
