@@ -2,7 +2,9 @@
 
 ### What is this
 
-I meant to highlight my ideas, assumptions and process for solving the technical exercise. It is also meant as a conversation starter so we can discuss my approach to the exercise open-mindedly. I would also like to discuss why I am an excellent fit for Potloc and what value I can add to the Questionnaire team and Potloc's road to a bright future.
+I wrote this repository to highlight my ideas, assumptions and process for solving the technical exercise proposed by Potloc. 
+
+It is also meant as a conversation starter so we can discuss my approach to the exercise open-mindedly. I would love to discuss why I am an excellent fit for Potloc, the value I can add to the Questionnaire team, and how I can help Potloc on its road to a bright future.
 
 # Structure
 This readme will show the iterations the solution has gone through until its final state.
