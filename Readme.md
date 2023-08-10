@@ -231,3 +231,51 @@ https://github.com/alymenbr/potloc-exercise/assets/1554358/cc83576c-b49e-4b78-8c
 We have finished our exercise! 
 ...
 Have we?
+
+
+## Iteration 6 - Bonus Round
+_We will use the Paris 2024 Olympic Games to enter the sports shoe market. Our new line of products should be available in stores very soon. I don't want to train all my employees on the characteristics of this untested new line of products. Can you create a recommendation functionality where a seller describes the customer's wants and receives a justified product suggestion? Also, I have seen a lot of hype about ChatGPT. Could you use that?_ - Mr. Aldo
+
+As demanded by Mr. Aldo, we added an interface with OpenAI's ChatGPT. When the salesman enters the customer's needs, he responds with a suggestion based on eight new sports shoes. For now, the descriptions of the shoes were also created by ChatGPT.
+
+On each request, we provide context on the description of the shoes, the expected response in JSON format and the user prompt. The model used was gpt-3.5-turbo, which was good enough for our recommendation purposes.
+
+An example request:
+```
+I want comfortable shoes, resistant and colorful. I will use it to play basketball and to travel.
+```
+
+There is an API token committed to this repository. This is not standard practice, but it should facilitate evaluations. It also has a low spending limit registered on OpenAI, so using it will not cause any harm.
+
+We also refactored our UI and documentation to keep everything tidy.
+
+At the current state, to get our entire solution up:
+```
+websocketd --port=8080 ruby inventory.rb    # in \shoe-store-master
+npm start                                   # in \inventory-listener
+rails start                                 # in \inventory-hub
+```
+
+To check our updated tests:
+```
+npm test                                   # in \inventory-listener
+rspec                                      # in \inventory-hub
+```
+
+To access the webpage view of the inventory:
+```
+http://localhost:3000/inventories          # in any Browser
+```
+
+To access the webpage view of the api documentation:
+```
+http://localhost:3000/api_docs/swagger/          # in any Browser
+```
+
+To access the suggestions webpage view:
+```
+http://localhost:3000/shoe_models/suggestion/          # in any Browser
+```
+
+
+
