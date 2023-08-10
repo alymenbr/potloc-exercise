@@ -16,7 +16,7 @@ My initial assumptions:
  - It is more important to show how I like to work than to create an extensive solution.
  - It is more important to show my knowledge of different aspects of software development than to create a complex solution.
  - The development of the solution should take between 4 to 8 hours.
- - The solution will be made iteratively, with each iteration taking approximately one hour / two pomodoros (https://en.wikipedia.org/wiki/Pomodoro_Technique).
+ - The solution can be made iteratively. I will register a "snapshot" of the solution at the end of each iteration.
  - It is okay to use a storytelling structure whenever I see fit.
 
 I hope you have as much fun reading this as I had when creating it. So, without further ado:
@@ -26,7 +26,7 @@ I hope you have as much fun reading this as I had when creating it. So, without 
 ### Iteration 1 - Starting out
 _I cannot stand anymore having to check the inventory of each of our stores! I need a single source of truth, a centralized view of our inventory. Get me on a call with Anthony right now. I bet he can have something done before the end of the day!_ - Mr. Aldo.
 
-After a brief talk with him, we checked our annotations:
+After a brief talk with him, we checked our meeting notes:
 
 ```
 	- Aldo will be the sole user of the solution for the time being
@@ -124,7 +124,7 @@ At the end of this iteration, we could show the global inventory, store specific
 
 
 ### Iteration 4 - A reactive UI
-_The webpage view is better, but I still need to keep refreshing the page to see any changes. My thumbs will get sore if I keep refreshing the page like that. Can you make the changes appear automatically? _ - Mr. Aldo
+_The webpage view is better, but I still need to keep refreshing the page to see any changes. My thumbs will get sore if I keep refreshing the page like that. Can you make the changes appear automatically?_ - Mr. Aldo.
 
 For Mr. Aldo's latest need, we can leverage Rails Hotwire frameworks to make the pages more reactive.
 
@@ -151,3 +151,34 @@ http://localhost:3000/inventories          # in any Browser
 ```
 
 At the end of this iteration, we could show the updated inventory quantities without manually refreshing the page.
+
+
+### Iteration 5 - API availability and documentation
+_I am a modern person. I want an API. I would love to access my inventory from some new service aggregation that gathers data from web api's. I may have someone get Alexa to tell me my inventory count. While you are at it, have some documentation ready, I don't want to have to remember any API shenanigans by memory in the future._ - Mr. Aldo.
+
+At the request of Mr. Aldo, we added endpoints to check the global inventory, inventory for a specific shoe story, and availability for a particular shoe model. We also generated Swagger/OpenApi 2.0 compatible documentation and updated our tests. 
+
+At the current state, to get our entire solution up:
+```
+websocketd --port=8080 ruby inventory.rb    # in \shoe-store-master
+npm start                                   # in \inventory-listener
+rails start                                 # in \inventory-hub
+```
+
+To check our updated tests:
+```
+npm test                                   # in \inventory-listener
+rspec                                      # in \inventory-hub
+```
+
+To access the webpage view of the inventory:
+```
+http://localhost:3000/inventories          # in any Browser
+```
+
+To access the webpage view of the api documentation:
+```
+http://localhost:3000/api_docs/swagger/          # in any Browser
+```
+
+We finally have an API to extend the functionalities of Mr. Aldo's solution in the future. We have finished our exercise! Have we?
