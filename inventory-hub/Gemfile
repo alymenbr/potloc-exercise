@@ -74,3 +74,5 @@ gem 'swaggard', :git => 'https://github.com/LeftClickBV/swaggard.git', :ref => '
 gem "sprockets", "~> 4.2"
 
 gem "active_model_serializers", "~> 0.10.13"
+
+gem "faraday", "~> 2.7"

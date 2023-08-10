@@ -7,7 +7,8 @@
   <% end %>
 
   <div class="flex justify-between items-center pb-8">
-    <h1 class="mx-auto text-xl font-bold text-4xl">Aldo's Global Inventory</h1>
+    <h1 class="mx-auto pl-20 text-xl font-bold text-4xl">Aldo's Global Inventory</h1>
+    <%= link_to 'Suggestions', suggestion_shoe_models_path, class: "rounded-lg py-2 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 
   <%= turbo_stream_from 'inventory_global' %>

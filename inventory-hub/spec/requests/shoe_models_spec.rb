@@ -28,5 +28,12 @@ RSpec.describe "/shoe_models", type: :request do
       expect(response).to be_successful
     end
   end
+  
+  describe "GET /suggestion" do
+    it "returns http success" do
+    end      get "/shoe_models/suggestion"
+      expect(response).to have_http_status(:success)
+
+  end
 
 end
