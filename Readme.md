@@ -277,5 +277,25 @@ To access the suggestions webpage view:
 http://localhost:3000/shoe_models/suggestion/          # in any Browser
 ```
 
+### Results
+We now have an assistant to help suggest sports shoes to our customers: 
+
+#### inventory-hub assistant suggestions
+
+https://github.com/alymenbr/potloc-exercise/assets/1554358/4fee5b4f-da81-450d-ae34-380da07c8ed6
 
 
+#### FINAL STATE OF THE SOLUTION
+
+
+https://github.com/alymenbr/potloc-exercise/assets/1554358/66fb4814-1834-475d-9738-7f3fada603d2
+
+
+[Repository state at end of Iteration 6.](https://github.com/alymenbr/potloc-exercise/releases/tag/iteration_6)
+
+
+# Closing words
+I am thrilled to apply for this position at Potloc. I wanted to solve this exercise in a challenging but fun way.
+I hope you had as much fun reading it as I had to code it. Let's keep in touch!
+Best regards,
+Alysson Anthony
