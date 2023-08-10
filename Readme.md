@@ -121,3 +121,33 @@ http://localhost:3000/inventories          # in any Browser
 
 
 At the end of this iteration, we could show the global inventory, store specific inventory, and model specific availability using a simple but functional web interface.
+
+
+### Iteration 4 - A reactive UI
+_The webpage view is better, but I still need to keep refreshing the page to see any changes. My thumbs will get sore if I keep refreshing the page like that. Can you make the changes appear automatically? _ - Mr. Aldo
+
+For Mr. Aldo's latest need, we can leverage Rails Hotwire frameworks to make the pages more reactive.
+
+Rails Turbo Frames were used to update user views every time a new inventory update was received. Maintaining inventory ordering was a little tricky because, by default, new items would be appended at the end of the inventory list. The solution involved using client-side css properties.
+
+We also added animated highlights on created or updated inventory items to help Aldo better visualize changes.
+
+At the current state, to get our entire solution up:
+```
+websocketd --port=8080 ruby inventory.rb    # in \shoe-store-master
+npm start                                   # in \inventory-listener
+rails start                                 # in \inventory-hub
+```
+
+To check our updated tests:
+```
+npm test                                   # in \inventory-listener
+rspec                                      # in \inventory-hub
+```
+
+To access the webpage view of the inventory:
+```
+http://localhost:3000/inventories          # in any Browser
+```
+
+At the end of this iteration, we could show the updated inventory quantities without manually refreshing the page.
