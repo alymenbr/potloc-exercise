@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InventoryHub</title>
+    <title>Inventory Hub</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,8 +12,26 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-10 px-5 flex">
-      <%= yield %>
-    </main>
+    <header class="bg-black">
+      <div class="flex items-end py-5">
+        <%= image_tag 'logo.png', alt: 'Anthony Inventory Hub' %>
+        <span class="text-gray-100 text-2xl font-bold text-a">ldo Inventory Hub</span>
+      </div>
+    </header>
+
+    <section class="flex">
+      <nav class="bg-black p-6 ">
+
+        <ul class="text-gray-100 leading-8 font-bold mt-5">
+          <li><a href="/">Inventory</a></li>
+          <li><a href="/shoe_models/suggestion">Suggestions</a></li>
+          <li><a href="/api_docs/swagger/" target="_blank">API</a></li>
+        </ul>
+      </nav>
+
+      <main class="container mx-auto mt-4 px-5 flex">
+        <%= yield %>
+      </main>
+    </section>
   </body>
 </html>
